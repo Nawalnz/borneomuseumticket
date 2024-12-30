@@ -17,4 +17,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/reservations', [ReservationController::class, 'index']);
+    Route::post('/reservations', [ReservationController::class, 'store']);
+    Route::patch('/reservations/{id}/used', [ReservationController::class, 'markAsUsed']);
+});
+
+Route::get('/reservations/{reservation_number}', [ReservationController::class, 'search']);
+Route::patch('/reservations/{id}/used', [ReservationController::class, 'markAsUsed']);
+
+Route::get('/ticketing', function () {
+    return view('ticketing');
+});
+
 require __DIR__.'/auth.php';

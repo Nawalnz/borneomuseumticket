@@ -11,29 +11,33 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Users table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('name'); // Name of the admin/counter personnel
+            $table->string('email')->unique(); // Email for authentication
+            $table->timestamp('email_verified_at')->nullable(); // For verifying email
+            $table->string('password'); // Password for authentication
+            $table->enum('role', ['admin', 'counter_personnel'])->default('counter_personnel'); // Role column
+            $table->rememberToken(); // For "Remember Me" functionality
             $table->timestamps();
         });
 
+        // Password reset tokens
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->string('email')->primary(); // Email as primary key
+            $table->string('token'); // Reset token
+            $table->timestamp('created_at')->nullable(); // Timestamp for token creation
         });
 
+        // Sessions table
         Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->string('id')->primary(); // Session ID as primary key
+            $table->foreignId('user_id')->nullable()->index(); // Link to the user
+            $table->string('ip_address', 45)->nullable(); // IP address of the user
+            $table->text('user_agent')->nullable(); // Browser/OS details
+            $table->longText('payload'); // Session data
+            $table->integer('last_activity')->index(); // Last activity timestamp
         });
     }
 
