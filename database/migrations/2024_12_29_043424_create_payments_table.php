@@ -9,17 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
+        // Schema::create('payments', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->timestamps();
+        // });
+
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ticket_id')->constrained('tickets')->onDelete('cascade'); // Links to the tickets table
-            $table->decimal('amount_paid', 8, 2); // Amount paid
-            $table->string('payment_method'); // Payment method (e.g., cash, spay, card)
-            $table->timestamp('transaction_date')->useCurrent(); // When the payment was made
+            $table->foreignId('reservation_id')->constrained()->onDelete('cascade');
+            $table->decimal('amount', 8, 2);
+            $table->timestamp('payment_date')->nullable();
             $table->timestamps();
         });
-    }    
+    }
 
     /**
      * Reverse the migrations.
