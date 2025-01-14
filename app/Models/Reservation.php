@@ -10,12 +10,24 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reservation_number', 'customer_email', 'status', 'total_amount', 'payment_method',
+        'user_id',
+        'ticket_id',
+        'quantity',
+        'status',
     ];
 
-    public function tickets()
+    public function user()
     {
-        return $this->hasMany(Ticket::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
     }
 }
-

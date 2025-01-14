@@ -10,12 +10,14 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reservation_id', 'type', 'price', 'quantity', 'total_amount',
+        'name',
+        'description',
+        'price',
+        'quantity',
     ];
 
-    public function reservation()
+    public function reservations()
     {
-        return $this->belongsTo(Reservation::class);
+        return $this->hasMany(Reservation::class);
     }
 }
-

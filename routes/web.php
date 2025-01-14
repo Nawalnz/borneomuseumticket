@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,17 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/reservations', [ReservationController::class, 'index']);
-    Route::post('/reservations', [ReservationController::class, 'store']);
-    Route::patch('/reservations/{id}/used', [ReservationController::class, 'markAsUsed']);
-});
-
-Route::get('/reservations/{reservation_number}', [ReservationController::class, 'search']);
-Route::patch('/reservations/{id}/used', [ReservationController::class, 'markAsUsed']);
-
-Route::get('/ticketing', function () {
-    return view('ticketing');
-});
+Route::resource('tickets', TicketController::class);
+Route::resource('reservations', ReservationController::class);
+Route::resource('payments', PaymentController::class);
 
 require __DIR__.'/auth.php';
