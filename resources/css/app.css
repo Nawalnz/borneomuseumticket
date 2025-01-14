@@ -13,6 +13,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+body.dark {
+    background-color: #121212; /* Dark mode background */
+    color: #ffffff;          /* Dark mode text */
+}
+
+.dark .navbar {
+    background-color: #333333; /* Dark mode navbar */
+    color: #ffffff;
+}
+
 .header-title {
     font-size: 3em; /* Adjust size as needed */
     font-weight: bold; /* Makes the text bold */

@@ -1,4 +1,17 @@
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    <div class="flex items-center space-x-4">
+        <!-- Dark Mode Toggle -->
+        <button
+            x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }"
+            x-init="$watch('darkMode', value => localStorage.setItem('darkMode', value))"
+            @click="darkMode = !darkMode"
+            :class="{ 'bg-gray-800 text-white': darkMode, 'bg-gray-200 text-black': !darkMode }"
+            class="px-3 py-1 rounded-md transition"
+        >
+            <span x-text="darkMode ? 'Dark Mode' : 'Light Mode'"></span>
+        </button>
+    </div>
+    
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
