@@ -111,14 +111,103 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#ticketing">Tickets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#ticketing">Ticket</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tteam">Team</a></li>
                     </ul>
                     <!-- Add the toggle button here -->
                     <button id="darkModeToggle" class="btn btn-outline-secondary ms-auto">Switch Mode</button>
                 </div>
             </div>
         </nav>
+
+        <!-- Homepage -->
+<section id="home" class="container mt-4">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button> <!-- New Indicator -->
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://museum.sarawak.gov.my/web/attachment/show/?docid=U2IvK29RQkVjSFUxNVpEVHZudEdHdz09OjpjHWh2kLIlorlGnAdz79su" class="d-block w-100" alt="Borneo Museum Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://media.malaysianow.com/wp-content/uploads/2022/03/06224812/BCM-night-2.jpg" class="d-block w-100" alt="Borneo Museum Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://tatknows.com/upload/directory/article/304/FF3B8573-1ADA-4B13-AB48-84497C818FB7.jpeg" class="d-block w-100" alt="Borneo Museum Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.prestigeonline.com/wp-content/uploads/sites/5/2022/03/24113829/FeaturedHero-image-2-11.jpg" class="d-block w-100" alt="Borneo Museum Image 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</section>
+
+<!-- Ticketing System -->
+<section id="ticketing" class="container mt-5">
+    <h2 class="text-center">Book Your Tickets HERE!</h2>
+    <form id="bookingForm" class="mt-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your Full Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date of Visit</label>
+            <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">Time of Visit</label>
+            <input type="time" class="form-control" id="time" required>
+        </div>
+        <div class="mb-3">
+            <label for="slot" class="form-label">Category</label>
+            <select id="slot" class="form-select" required>
+                <option value="" disabled selected>Please Select your Category</option>
+                <option value="5">13-17 Years old an Student with id RM 5</option>
+                <option value="25">Foreigner RM 25</option>
+                <option value="10">Adult Sarawakian rm 10</option>
+                <option value="20">Adult non Sarawakian rm 20</option>
+                <option value="50">Adult Foreigner RM 50</option>
+                <option value="5">Senior Citizen Sarawakian 61 and above RM 5</option>
+                <option value="10">Senior Citizen non Sarawakian 61 and above RM 10</option>
+                <option value="25">Foreignet Senior Citizen Sarawakian 61 and above RM 25</option>
+                <option value="0">Disability person with registered free</option>
+                <option value="25">Foreignet Senior Citizen Sarawakian 61 and above RM 25</option>
+                <option value="100">Unlimited visit RM 100</option>
+                <option value="8">sarawakian group per person RM 8</option>
+                <option value="16">Non sarawakian group per person RM 16</option>
+                <option value="40">Foreigner group per person RM 40</option>
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Ticket</button>
+    </form>
+</section>
+
+<!-- Notification Alert -->
+<div id="notification" class="alert alert-success">
+    Ticket booked successfully! Thank you for your payment and enjoy your visit.
+</div>
     </body>
 
     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
