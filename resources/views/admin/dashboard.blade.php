@@ -1,9 +1,8 @@
-@extends('layouts.app')
-
-@section('header')
-    <h1 class="text-3xl font-bold">Dashboard</h1>
-@endsection
+@extends('layouts.navigation')
 
 @section('content')
-    <p>Welcome, {{ Auth::user()->name }}!</p>
+<div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold mt-8">Admin Dashboard</h1>
+    <p class="mt-4">Manage tickets, users, and more from this dashboard.</p>
+</div>
 @endsection
