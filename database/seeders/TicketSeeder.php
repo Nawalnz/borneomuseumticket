@@ -3,26 +3,32 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Ticket;
+use Illuminate\Support\Facades\DB;
 
 class TicketSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        Ticket::create([
-            'reservation_id' => 1, // Link to reservation ID
-            'type' => 'Sarawakian Kids',
-            'price' => 0.00,
-            'quantity' => 2,
-            'total_amount' => 0.00,
-        ]);
+        DB::table('tickets')->insert([
+            // Children
+            ['category' => 'Children', 'nationality' => 'Malaysian (Sarawakian)', 'price' => 0.00],
+            ['category' => 'Children', 'nationality' => 'Malaysian (Non-Sarawakian)', 'price' => 0.00],
+            ['category' => 'Children', 'nationality' => 'Foreigner', 'price' => 20.00],
 
-        Ticket::create([
-            'reservation_id' => 1,
-            'type' => 'Non-Sarawakian Adults',
-            'price' => 20.00,
-            'quantity' => 3,
-            'total_amount' => 60.00,
+            // Student
+            ['category' => 'Student', 'nationality' => 'Malaysian (Sarawakian)', 'price' => 5.00],
+            ['category' => 'Student', 'nationality' => 'Malaysian (Non-Sarawakian)', 'price' => 5.00],
+            ['category' => 'Student', 'nationality' => 'Foreigner', 'price' => 25.00],
+
+            // Adult
+            ['category' => 'Adult', 'nationality' => 'Malaysian (Sarawakian)', 'price' => 10.00],
+            ['category' => 'Adult', 'nationality' => 'Malaysian (Non-Sarawakian)', 'price' => 20.00],
+            ['category' => 'Adult', 'nationality' => 'Foreigner', 'price' => 50.00],
+
+            // Senior
+            ['category' => 'Senior', 'nationality' => 'Malaysian (Sarawakian)', 'price' => 5.00],
+            ['category' => 'Senior', 'nationality' => 'Malaysian (Non-Sarawakian)', 'price' => 10.00],
+            ['category' => 'Senior', 'nationality' => 'Foreigner', 'price' => 25.00],
         ]);
     }
 }
