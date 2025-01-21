@@ -7,11 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<li> Group Members:
-    <ul>KHATIJAH WANG</ul>
-    <ul>LUQMAN HAKIM BIN SANSURI</ul>
-    <ul>NAWAL NAJLA BINTI ZARZAIE</ul>
-    <ul>ALEXANDER GUDANG ANAK COLLINE</ul>
-    <ul>AFIQ BIN ISMALI @ ISMAIL</ul>
-</li>
+<ol> Group Members:
+    <li>KHATIJAH WANG</li>
+    <li>LUQMAN HAKIM BIN SANSURI</li>
+    <li>NAWAL NAJLA BINTI ZARZAIE</li>
+    <li>ALEXANDER GUDANG ANAK COLLINE</li>
+    <li>AFIQ BIN ISMALI @ ISMAIL</li>
+</ol>
 
