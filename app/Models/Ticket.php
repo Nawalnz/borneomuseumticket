@@ -11,13 +11,9 @@ class Ticket extends Model
 
     protected $fillable = [
         'name',
-        'description',
-        'price',
-        'quantity',
+        'email',
+        'date',
+        'time',
+        'category_id', // Foreign key for the category
     ];
-
-    public function reservations()
-    {
-        return $this->hasMany(Reservation::class);
-    }
 }

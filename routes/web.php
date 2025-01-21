@@ -1,34 +1,41 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicController;
-use App\Http\Controllers\AdminController;
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\RoleMiddleware;
-
 use App\Http\Controllers\TicketController;
-use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TeamController;
+use Illuminate\Support\Facades\Route;
 
-// Public Routes
-Route::get('/', [PublicController::class, 'index'])->name('home');
-Route::get('/about', [PublicController::class, 'about'])->name('about');
-Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
-
-// Admin Routes (Protected by Middleware)
-Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::resource('/admin/tickets', TicketController::class);
-    Route::resource('/admin/reservations', ReservationController::class);
+Route::get('/', function () {
+    return view('welcome');
 });
 
-// Superadmin Routes (Exclusive to Superadmin)
-Route::middleware(['auth', 'role:superadmin'])->group(function () {
-    Route::get('/admin/manage-users', [AdminController::class, 'manageUsers'])->name('admin.manageUsers');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('tickets', TicketController::class);
-Route::resource('payments', PaymentController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__.'/auth.php';
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::get('/team', [TeamController::class, 'index'])->name('team');
+
+Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::get('/tickets/bulk', [TicketController::class, 'bulk'])->name('tickets.bulk');
+
+// Admin-specific routes
+Route::middleware('auth')->group(function () {
+    Route::get('/tickets/create', [TicketController::class, 'create'])->name('tickets.create');
+    Route::post('/tickets/admin-store', [TicketController::class, 'adminStore'])->name('tickets.admin-store');
+    Route::get('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+    Route::put('/tickets/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+    Route::delete('/tickets/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+});
