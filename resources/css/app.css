@@ -2,33 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* General Styles */
+/* General Styles
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light background for readability */
-    color: #343a40; /* Dark text color */
+    background-color: #f8f9fa; 
+    color: #343a40; 
 
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark {
-    background-color: #121212; /* Dark mode background */
-    color: #ffffff;          /* Dark mode text */
+    background-color: #121212; 
+    color: #ffffff;          
 }
 
 .dark .navbar {
-    background-color: #333333; /* Dark mode navbar */
+    background-color: #333333; 
     color: #ffffff;
 }
 
 .header-title {
-    font-size: 3em; /* Adjust size as needed */
-    font-weight: bold; /* Makes the text bold */
-    text-align: center; /* Center the text, optional */
-    margin: 0; /* Adds some space above the header */
-    color: #7ee9e2;/* Change this to your desired color */
+    font-size: 3em; 
+    font-weight: bold; 
+    text-align: center; 
+    margin: 0; 
+    color: #7ee9e2;
     padding: 20px 0;
     background-color: #1f4c5c;
     text-shadow: 2px 2px 4px rgba(58, 19, 137, 0.2); 
@@ -46,11 +46,11 @@ h2 {
     font-size: 2rem;
 }
 
-/* Navbar Styles */
+
 .navbar {
-    position: sticky; /* Fixes the navbar to the top */
-    /*top: 0; /* Positions the navbar at the top of the viewport */
-    width: 100%; /* Ensures the navbar spans the full width */
+    position: sticky; 
+    top: 0; 
+    width: 100%; 
     z-index: 1000;
     margin: 0;
     padding: 0;
@@ -62,22 +62,20 @@ h2 {
 }
 
 .nav-link {
-   /* margin: 0 15px;*/
+   margin: 0 15px;
     transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: #3c648b; /* Highlight color on hover */
+    color: #3c648b;
 }
 
 #darkModeToggle {
     transition: background 0.3s, color 0.3s;
 }
 
-
-/* Ticketing Form Styles */
 form {
-    background: #188095; /* White background for the form */
+    background: #188095; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -93,10 +91,9 @@ input, select {
 }
 
 input:focus, select:focus {
-    border-color: #4caf50; /* Highlight border on focus */
+    border-color: #4caf50; 
 }
 
-/* Notification Alert */
 #notification {
     position: fixed;
     top: 20px;
@@ -105,7 +102,6 @@ input:focus, select:focus {
     display: none;
 }
 
-/* Google Map Styles */
 .map {
     width: 100%;
     height: 400px;
@@ -113,7 +109,6 @@ input:focus, select:focus {
     border-radius: 10px;
 }
 
-/* Team Section Styles */
 .team-photo {
     width: 150px;
     height: 150px;
@@ -130,72 +125,70 @@ input:focus, select:focus {
     margin-bottom: 20px;
 }
 
-/* Pagination Styles */
 .pagination {
     margin: 20px 0;
 }
 
-/* Dark Mode Styles */
 body.bg-dark {
-    background-color: #1e0f43; /* Dark background */
-    color: rgb(38, 88, 119); /* Light text color */
+    background-color: #1e0f43; 
+    color: rgb(38, 88, 119); 
 }
 
 body.bg-dark .navbar {
-    background-color: #524d4d; /* Dark navbar */
+    background-color: #524d4d; 
 }
 
 .form-control::placeholder {
-    color: #6c757d; /* Light mode placeholder color */
+    color: #6c757d; 
 }
-/* Dark mode styles */
+
 body.bg-dark .form-control::placeholder {
-    color: white; /* Dark mode placeholder color */
+    color: white;
 }
 
 body.bg-dark .form-control
 body.bg-dark .form-select {
-    background-color: #333; /* Dark input fields */
-    color: #fff; /* Light text in input fields */
-    border: 1px solid #555; /* Darker border */
+    background-color: #333; 
+    color: #fff; 
+    border: 1px solid #555;
 }
 
 body.bg-dark .form-control:focus,
 body.bg-dark .form-select:focus {
-    border-color: #4caf50; /* Highlight border on focus in dark mode */
+    border-color: #4caf50;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
     }
 
     .carousel-item img {
-        height: auto; /* Allow images to adjust in height on smaller screens */
+        height: auto; 
     }
 }
 
-/* Light Mode Navbar */
+
 .navbar-light {
-    background-color: #ffffff; /* Light background */
-    color: #000000; /* Dark text */
+    background-color: #ffffff;
+    color: #000000; 
 }
 
-/* Dark Mode Navbar */
+
 .navbar-dark {
-    background-color: #333333; /* Dark background */
-    color: #ffffff; /* Light text */
+    background-color: #333333; 
+    color: #ffffff;
 }
 
-/* Additional styles for links */
+
 .nav-link {
-    color: inherit; /* Inherit color from navbar */
+    color: inherit; 
     transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: #766ee4; /* Highlight color on hover */
+    color: #766ee4; 
 }
 
 .team-photo {
@@ -234,5 +227,5 @@ body.bg-dark {
 }
 
 body.bg-dark .form-control::placeholder {
-    color: white; /* Dark mode placeholder color */
-}
+    color: white; 
+} */
