@@ -28,8 +28,11 @@ Route::get('/', function () {
 Route::get('/team', [TeamController::class, 'index'])->name('team');
 
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
-Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::post('/tickets', [TicketController::class, 'confirm'])->name('tickets.confirm');
 Route::get('/tickets/bulk', [TicketController::class, 'bulk'])->name('tickets.bulk');
+Route::get('/tickets/payment', [TicketController::class, 'payment'])->name('tickets.payment');
+Route::post('/tickets/payment/complete', [TicketController::class, 'storeAfterPayment'])->name('tickets.payment.complete');
+
 
 // Admin-specific routes
 Route::middleware('auth')->group(function () {

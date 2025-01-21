@@ -5,7 +5,7 @@
     <h2 class="text-center text-2xl font-bold mb-5">Book Your Tickets HERE!</h2>
     
     <!-- Booking Form -->
-    <form id="bookingForm" method="POST" action="{{ route('tickets.store') }}" class="bg-gray-100 p-6 rounded shadow-md">
+    <form id="bookingForm" method="POST" action="{{ route('tickets.confirm') }}" class="bg-gray-100 p-6 rounded shadow-md">
         @csrf <!-- Laravel CSRF protection -->
 
         <!-- Name -->
@@ -61,25 +61,27 @@
 @endsection
 
 <script>
-    let categoryIndex = 1; // Track dynamic index for categories
-    document.getElementById('add-category').addEventListener('click', function () {
-        const container = document.getElementById('categories-container');
-        const newRow = `
-            <div class="category-group flex items-center space-x-4 mb-4">
-                <select name="categories[${categoryIndex}][category]" class="form-select flex-1 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                    <option value="" disabled selected>Select your Category</option>
-                    @foreach ($categories as $index => $category)
-                        @if ($index <= 12)
-                            <option value="{{ $category->id }}">
-                                {{ $category->name }} - RM {{ $category->price }}
-                            </option>
-                        @endif
-                    @endforeach
-                </select>
-                <input type="number" name="categories[${categoryIndex}][quantity]" min="1" placeholder="Qty" class="form-control w-20 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-            </div>
-        `;
-        container.insertAdjacentHTML('beforeend', newRow);
-        categoryIndex++;
+    document.addEventListener('DOMContentLoaded', function () {
+        let categoryIndex = 1; // Track dynamic index for categories
+        document.getElementById('add-category').addEventListener('click', function () {
+            const container = document.getElementById('categories-container');
+            const newRow = `
+                <div class="category-group flex items-center space-x-4 mb-4">
+                    <select name="categories[${categoryIndex}][category]" class="form-select flex-1 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                        <option value="" disabled selected>Select your Category</option>
+                        @foreach ($categories as $index => $category)
+                            @if ($index <= 12)
+                                <option value="{{ $category->id }}">
+                                    {{ $category->name }} - RM {{ $category->price }}
+                                </option>
+                            @endif
+                        @endforeach
+                    </select>
+                    <input type="number" name="categories[${categoryIndex}][quantity]" min="1" placeholder="Qty" class="form-control w-20 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', newRow);
+            categoryIndex++;
+        });
     });
 </script>
